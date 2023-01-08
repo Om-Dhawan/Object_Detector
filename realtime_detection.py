@@ -1,13 +1,13 @@
 import cv2
 
 # Opencv DNN
-net = cv2.dnn.readNet("./object_detection/dnn_model/yolov4-tiny.weights", "./object_detection/dnn_model/yolov4-tiny.cfg")
+net = cv2.dnn.readNet("./yolov4-tiny.weights", "./yolov4-tiny.cfg")
 model = cv2.dnn_DetectionModel(net)
 model.setInputParams(size=(320, 320), scale=1/255)
 
 # Load class lists
 classes = []
-with open("./object_detection/dnn_model/classes.txt", "r") as file_object:
+with open("./classes.txt", "r") as file_object:
     for class_name in file_object.readlines():
         class_name = class_name.strip()
         classes.append(class_name)
